@@ -1,0 +1,49 @@
+<!-- Descriptions:
+      - [value]="newPost" -> takes the value from `newPost` and can use it again in the same html file
+      - #postInput        -> takes the value from the input in the field and can pass it to a function, waiting in the `.ts` file. -->
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <!-- Entered Title -->
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="3"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a post title!</mat-error>
+    </mat-form-field>
+
+    <!-- Entered Content -->
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="content"
+        ngModel
+        required
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post content!</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>
+
+<!-- EXAMPLE WITHOUT MAT FORM -->
+
+<!-- Description:
+      - Make a direct connection to the `.ts` with `enteredValue`. -->
+      <!-- <p>Entered value</p>
+      <textarea rows="6" [value]="newPost"></textarea>
+      <hr> -->
+      <!-- Makes a button named `Save Post`, which will on `(click)` call the function from the `.ts` file and give the given value from `#postInput`.
+            - postInput: HTMLTextAreaElement -->
+      <!-- Show the value from the created instance from [value]="newPost" as `paragraph`. -->
+<!-- <p>New Post: {{ newPost }}</p> -->
+
+<!-- EXAMPLE WITHOUT MAT FORM -->
