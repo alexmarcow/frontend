@@ -8,5 +8,6 @@ import { Post } from '../post.model';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent {
+  // Create @Input() to make posts available to receive content from outside of this component.
   @Input() posts: Post[] = [];
 }
