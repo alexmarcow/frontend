@@ -10,14 +10,15 @@ import { PostsService } from '../posts.service';
 })
 
 export class PostCreateComponent {
-  enteredTitle = '';
-  enteredContent = '';
-
   // Create @Output() to make the EventEmitter accessible for the outside of this component.
   // @Output() postCreated = new EventEmitter<Post>();
 
   constructor(public postsService: PostsService) {}
 
+  /**
+   * Add posts with the including title and content. Checks if it is valid and add it to the service.
+   * @param form Receive form including title and content.
+   */
   onAddPost(form: NgForm) {
     // Check first if the form is valid.
     if (form.invalid) {
