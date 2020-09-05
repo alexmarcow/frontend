@@ -25,5 +25,10 @@ export class PostCreateComponent {
     }
 
     this.postsService.addPost(form.value.title, form.value.content);
+
+    /**
+     * After `Save Post` the Title and the Content fields are reset.
+     */
+    form.resetForm();
   }
 }
